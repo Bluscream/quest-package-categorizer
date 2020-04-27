@@ -16,7 +16,7 @@ https://sidequestvr.com/#/app/199 / https://github.com/tverona1/QuestAppLauncher
 run it at least once before using this script.
 
 
-To Install:
+## To Install:
 
 wget https://github.com/korenmic/quest-package-categorizer/raw/master/qpc.py
 
@@ -24,25 +24,17 @@ wget https://github.com/korenmic/quest-package-categorizer/raw/master/qpc.py
 Before running make sure the quest is connected to your device and that adb is installed
 
 
-Usage example:
-
+## Usage example:
+```
 $ ./qpc.py
-
 qpclib> pull
-
 qpclib> continue
-
 $ ./qpc.py "find_packages('hearth')"
-
 [u'com.blizzard.wtcg.hearthstone']
-
 $ ./qpc.py
-
 qpclib> categorize_names("Card games", "hearth")
-
 qpclib> push
-
-
+```
 
 Note:
 
