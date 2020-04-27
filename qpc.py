@@ -54,7 +54,7 @@ APPS = None
 
 def list_categories():
     """ Get list of all categories currently in use """
-    return tuple(set(APPS[k]['category'] for k in APPS))
+    return tuple({APPS[k]['category'] for k in APPS})
 
 
 def _get_adb_path():
@@ -207,7 +207,7 @@ def pull(quiet=False):
     if not _os.path.exists(_APPNAMES_PATH):
         # Failed to pull because file does not exist on quest
         print("Never installed before, installing")
-        APPS = dict()
+        APPS = {}
         for json in 'appnames_quest.json', 'appnames_other.json':
             full_path = _os.path.join(_REMOTE_APPNAMES_FOLDER_PATH, json)
             _adb_on_device('pull {}'.format(full_path))
@@ -236,7 +236,7 @@ class QPCCmd(Pdb, object):
     @staticmethod
     def _get_doc(at_name):
         at = globals().get(at_name)
-        if not callable(at) or not getattr(at, '__doc__', None):
+        if not (callable(at) and getattr(at, '__doc__', None)):
             return ''
         return ' - ' + at.__doc__.strip()
     
