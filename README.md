@@ -20,7 +20,7 @@ Before running make sure the quest is connected to your device and that adb is i
 
 ## Usage example:
 
-```
+```bash
 $ ./qpc.py
 qpclib> pull
 qpclib> continue
